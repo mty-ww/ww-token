@@ -272,19 +272,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "buyTax",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "decimals",
 				"outputs": [
 					{
@@ -368,19 +355,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "pancakePair",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -413,32 +387,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "sellTax",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_pair",
-						"type": "address"
-					}
-				],
-				"name": "setPair",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -459,6 +407,19 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "taxRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -723,11 +684,11 @@
 			]
 		},
 		"contracts/WW.sol": {
-			"keccak256": "0x255244eb4ea116e41d4d6f3194663b161df970b1a3ee6c97dd713538b10080ae",
+			"keccak256": "0x16d8103005525b3c82df8c5ae4ad334cfc971a776e9feaa9eca6faae37da23c9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4739f30d03a08befe7e5360afba77ba716043078067e9d997cd259f9023e1637",
-				"dweb:/ipfs/Qma7bGeNbcCVEeUigMR4MAv98Bfa4TQYiCUjt8STpRhndR"
+				"bzz-raw://73953d3e1a78473930fc52724fe8ace135cc29a4f0097fe9557d97e028543436",
+				"dweb:/ipfs/Qmagh6Kc4N2HXjahXCpqqbzefCUYprMXp4pG7wt1hrPxUX"
 			]
 		}
 	},

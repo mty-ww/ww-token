@@ -5,15 +5,13 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract WorldWarToken is ERC20, Ownable {
-    uint256 public buyTax = 1;
-    uint256 public sellTax = 1;
+    uint256 public taxRate = 1; // 1% on all transfers
 
     address public reserveWallet;
     address public devWallet;
     address public donationWallet;
 
     mapping(address => bool) private _isExcludedFromTax;
-    address public pancakePair;
     address public router;
 
     constructor(address _reserve, address _dev, address _donation) ERC20("World War Token", "WW") Ownable(msg.sender) {
@@ -29,14 +27,11 @@ contract WorldWarToken is ERC20, Ownable {
         _mint(devWallet, devAmount);
         _mint(reserveWallet, reserveAmount);
 
+        // Exclude from tax
         _isExcludedFromTax[msg.sender] = true;
         _isExcludedFromTax[reserveWallet] = true;
         _isExcludedFromTax[devWallet] = true;
         _isExcludedFromTax[donationWallet] = true;
-    }
-
-    function setPair(address _pair) external onlyOwner {
-        pancakePair = _pair;
     }
 
     function setRouter(address _router) external onlyOwner {
@@ -51,19 +46,10 @@ contract WorldWarToken is ERC20, Ownable {
         if (_isExcludedFromTax[sender] || _isExcludedFromTax[recipient]) {
             return amount;
         }
-
-        uint256 taxAmount = 0;
-
-        if (recipient == pancakePair) {
-            taxAmount = (amount * sellTax) / 100;
-        } else if (sender == pancakePair) {
-            taxAmount = (amount * buyTax) / 100;
-        }
-
+        uint256 taxAmount = (amount * taxRate) / 100;
         if (taxAmount > 0) {
             super._transfer(sender, donationWallet, taxAmount);
         }
-
         return amount - taxAmount;
     }
 
@@ -74,7 +60,7 @@ contract WorldWarToken is ERC20, Ownable {
 
     function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
         uint256 finalAmount = _handleTax(sender, recipient, amount);
-        _approve(sender, _msgSender(), allowance(sender, _msgSender()) - amount);
+        _approve(sender, _msgSender(), allowance(sender, _msgSender()) - (amount));
         return super.transferFrom(sender, recipient, finalAmount);
     }
 }
