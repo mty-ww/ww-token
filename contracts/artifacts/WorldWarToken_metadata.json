@@ -623,7 +623,7 @@
 		"compilationTarget": {
 			"contracts/WW.sol": "WorldWarToken"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "berlin",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
