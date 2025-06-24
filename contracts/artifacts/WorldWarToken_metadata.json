@@ -623,7 +623,7 @@
 		"compilationTarget": {
 			"contracts/WW.sol": "WorldWarToken"
 		},
-		"evmVersion": "berlin",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -684,11 +684,11 @@
 			]
 		},
 		"contracts/WW.sol": {
-			"keccak256": "0x16d8103005525b3c82df8c5ae4ad334cfc971a776e9feaa9eca6faae37da23c9",
+			"keccak256": "0x7c2bc1d42be2df3144bc5c098bdaeec90e13994167f3f990d7ddb3609bb55eb4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://73953d3e1a78473930fc52724fe8ace135cc29a4f0097fe9557d97e028543436",
-				"dweb:/ipfs/Qmagh6Kc4N2HXjahXCpqqbzefCUYprMXp4pG7wt1hrPxUX"
+				"bzz-raw://20977315019d5ac078278f4864de2daa15785b1396dc460a63f68edb851bc92f",
+				"dweb:/ipfs/QmSgwvnuk3fcXVsSXBvB87sdoe1XG135nZGB2Nd9K4x1uD"
 			]
 		}
 	},

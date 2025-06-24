@@ -59,8 +59,17 @@ contract WorldWarToken is ERC20, Ownable {
     }
 
     function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
+        uint256 currentAllowance = allowance(sender, _msgSender());
+        require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
+
         uint256 finalAmount = _handleTax(sender, recipient, amount);
-        _approve(sender, _msgSender(), allowance(sender, _msgSender()) - (amount));
-        return super.transferFrom(sender, recipient, finalAmount);
+
+        // Correctly deduct allowance once
+        _approve(sender, _msgSender(), currentAllowance - amount);
+
+        // Explicitly call _transfer (avoids double deduction)
+        _transfer(sender, recipient, finalAmount);
+        
+        return true;
     }
 }
